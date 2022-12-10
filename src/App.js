@@ -38,6 +38,16 @@ function App() {
         }
     }
 
+    function decimalClickHandler(e) {
+        e.preventDefault();
+        const value = e.target.innerHTML;
+
+        setCalc({
+            ...calc,
+            num: !calc.num.toString().includes(".") ? calc.num + value : calc.num,
+        });
+    }
+
     return (
         <Wrapper>
             <Screen value={calc.num ? calc.num : calc.res}/>
@@ -61,7 +71,7 @@ function App() {
                                                     : btn === "/" || btn === "X" || btn === "-" || btn === "+"
                                                         ? signClickHandler
                                                         : btn === "."
-                                                            ? commaClickHandler
+                                                            ? decimalClickHandler
                                                             : numClickHandler
                                 }
                             />
