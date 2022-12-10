@@ -104,6 +104,15 @@ function App() {
         });
     }
 
+    function resetClickHandler() {
+        setCalc({
+            ...calc,
+            sign: "",
+            num: 0,
+            res: 0,
+        });
+    }
+
     return (
         <Wrapper>
             <Screen value={calc.num ? calc.num : calc.res}/>
